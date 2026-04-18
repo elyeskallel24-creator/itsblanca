@@ -31,14 +31,14 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "BLANCA — Streetwear authentique. Drops limités." },
+      { title: "BLANCA" },
       {
         name: "description",
         content:
           "BLANCA — marque streetwear 2026. Drops limités, pièces audacieuses, livraison en Tunisie.",
       },
       { name: "author", content: "BLANCA" },
-      { property: "og:title", content: "BLANCA — Streetwear authentique" },
+      { property: "og:title", content: "BLANCA" },
       {
         property: "og:description",
         content: "Drops limités. Style authentique. Zéro compromis.",
@@ -46,6 +46,12 @@ export const Route = createRootRoute({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "BLANCA" },
+      { name: "description", content: "BLANCA ne suit pas les règles. On les brise. Chaque pièce est taillée pour ceux qui refusent de passer inaperçus." },
+      { property: "og:description", content: "BLANCA ne suit pas les règles. On les brise. Chaque pièce est taillée pour ceux qui refusent de passer inaperçus." },
+      { name: "twitter:description", content: "BLANCA ne suit pas les règles. On les brise. Chaque pièce est taillée pour ceux qui refusent de passer inaperçus." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ba364d06-e3d1-46ae-9531-d746fbb441a0/id-preview-46995a52--29a58f3c-4eef-4bcd-8642-43a90753ba27.lovable.app-1776523002886.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ba364d06-e3d1-46ae-9531-d746fbb441a0/id-preview-46995a52--29a58f3c-4eef-4bcd-8642-43a90753ba27.lovable.app-1776523002886.png" },
     ],
     links: [
       {
