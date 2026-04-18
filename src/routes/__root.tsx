@@ -1,6 +1,8 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { I18nProvider } from "@/lib/i18n";
+import { CartProvider } from "@/lib/cart";
 
 function NotFoundComponent() {
   return (
@@ -29,11 +31,18 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "BLANCA — Streetwear authentique. Drops limités." },
+      {
+        name: "description",
+        content:
+          "BLANCA — marque streetwear 2026. Drops limités, pièces audacieuses, livraison en Tunisie.",
+      },
+      { name: "author", content: "BLANCA" },
+      { property: "og:title", content: "BLANCA — Streetwear authentique" },
+      {
+        property: "og:description",
+        content: "Drops limités. Style authentique. Zéro compromis.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
@@ -65,5 +74,11 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-  return <Outlet />;
+  return (
+    <I18nProvider>
+      <CartProvider>
+        <Outlet />
+      </CartProvider>
+    </I18nProvider>
+  );
 }
