@@ -2,7 +2,7 @@ import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/r
 
 import appCss from "../styles.css?url";
 import { I18nProvider } from "../lib/i18n";
-import { CartProvider } from "@/lib/cart";
+import { CartProvider } from "../lib/cart";
 
 function NotFoundComponent() {
   return (
