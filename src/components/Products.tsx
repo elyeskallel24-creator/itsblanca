@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { fetchProducts, type Product } from "@/lib/products";
-import { useI18n, localizeBadge } from "@/lib/i18n";
-import { useCart } from "@/lib/cart";
-import { useReveal } from "@/hooks/useReveal";
+import { fetchProducts, type Product } from "../lib/products";
+import { useI18n, localizeBadge } from "../lib/i18n";
+import { useCart } from "../lib/cart";
+import { useReveal } from "../hooks/useReveal";
 
 function ProductPlaceholderImage({ name }: { name: string }) {
   return (

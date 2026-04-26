@@ -1,5 +1,5 @@
-import { useI18n } from "@/lib/i18n";
-import { useReveal } from "@/hooks/useReveal";
+import { useI18n } from "../lib/i18n";
+import { useReveal } from "../hooks/useReveal";
 
 export function Hero() {
   const { t } = useI18n();

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Minus, Plus, Trash2, X, Check } from "lucide-react";
-import { useCart } from "@/lib/cart";
-import { useI18n } from "@/lib/i18n";
+import { useCart } from "../lib/cart";
+import { useI18n } from "../lib/i18n";
 
 export function CartDrawer() {
   const { items, isOpen, close, setQuantity, remove, subtotal, clear } = useCart();
