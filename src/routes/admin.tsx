@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent } from "react";
 import { Delete, LogOut, Package, Pencil, Plus, Trash2, X } from "lucide-react";
-import logo from "@/assets/blanca-logo.png";
+import logo from "../assets/blanca-logo.png";
 import {
   PRODUCT_CATEGORIES,
   type Product,
