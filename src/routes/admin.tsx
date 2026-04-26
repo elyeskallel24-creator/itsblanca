@@ -9,7 +9,7 @@ import {
   fetchProducts,
   fileToBase64,
   upsertProduct,
-} from "@/lib/products";
+} from "../lib/products";
 
 export const Route = createFileRoute("/admin")({
   head: () => ({

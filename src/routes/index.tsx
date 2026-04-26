@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Navbar } from "@/components/Navbar";
-import { Hero } from "@/components/Hero";
-import { Marquee } from "@/components/Marquee";
-import { Products } from "@/components/Products";
-import { About } from "@/components/About";
-import { Footer } from "@/components/Footer";
-import { CartDrawer } from "@/components/CartDrawer";
+import { Navbar } from "../components/Navbar";
+import { Hero } from "../components/Hero";
+import { Marquee } from "../components/Marquee";
+import { Products } from "../components/Products";
+import { About } from "../components/About";
+import { Footer } from "../components/Footer";
+import { CartDrawer } from "../components/CartDrawer";
 
 export const Route = createFileRoute("/")({
   component: Index,
