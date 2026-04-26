@@ -1,5 +1,8 @@
 import { createApp } from "vinxi";
-import tsconfigPaths from "vite-tsconfig-paths";
+import { fileURLToPath } from "url";
+import path from "path";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default createApp({
   routers: [
@@ -14,7 +17,14 @@ export default createApp({
       type: "spa",
       handler: "./src/router.tsx",
       target: "browser",
-      plugins: () => [tsconfigPaths()],
+      plugins: () => [],
+      vite: {
+        resolve: {
+          alias: {
+            "@": path.resolve(__dirname, "./src"),
+          },
+        },
+      },
     },
   ],
 });
