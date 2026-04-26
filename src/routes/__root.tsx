@@ -1,7 +1,7 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
-import { I18nProvider } from "@/lib/i18n";
+import { I18nProvider } from "../lib/i18n";
 import { CartProvider } from "@/lib/cart";
 
 function NotFoundComponent() {
