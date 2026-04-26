@@ -6,7 +6,7 @@ function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => vo
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-2xl font-bold">Something went wrong</h1>
+        <h1 className="text-2xl font-bold tracking-tight text-foreground">Something went wrong</h1>
         <p className="mt-2 text-sm text-muted-foreground">{error.message}</p>
         <button 
           onClick={() => { router.invalidate(); reset(); }} 
@@ -29,4 +29,7 @@ export const router = createRouter({
 
 export const getRouter = () => router;
 
-export default router;
+// This ensures Vinxi can find the handler correctly
+export default {
+  handler: router
+};
