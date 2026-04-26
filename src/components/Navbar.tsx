@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Menu, ShoppingBag, X } from "lucide-react";
-import logo from "@/assets/blanca-logo.png";
+import logo from "../assets/blanca-logo.png";
 import { useI18n } from "@/lib/i18n";
 import { useCart } from "@/lib/cart";
 
