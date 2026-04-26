@@ -1,4 +1,5 @@
 import { createApp } from "vinxi";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 export default createApp({
   routers: [
@@ -13,7 +14,7 @@ export default createApp({
       type: "spa",
       handler: "./src/router.tsx",
       target: "browser",
-      plugins: () => [],
+      plugins: () => [tsconfigPaths()],
     },
   ],
 });
