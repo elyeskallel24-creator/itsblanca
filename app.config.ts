@@ -2,10 +2,10 @@ import { createApp } from "vinxi";
 import { fileURLToPath } from "url";
 import path from "path";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
+const __dirname =
+path.dirname(fileURLToPath(import.meta.url));
 export default createApp({
-  routers: [
+  router: [
     {
       name: "public",
       type: "static",
@@ -15,9 +15,9 @@ export default createApp({
     {
       name: "client",
       type: "spa",
-      handler: "./src/router.tsx",
+      handler: "./src/entry-client.tsx",
       target: "browser",
-      plugins: () => [],
+      plugins: () => []
       vite: {
         resolve: {
           alias: {

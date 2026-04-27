@@ -29,7 +29,4 @@ export const router = createRouter({
 
 export const getRouter = () => router;
 
-// This ensures Vinxi can find the handler correctly
-export default {
-  handler: router
-};
+export default router;
