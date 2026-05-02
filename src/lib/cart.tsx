@@ -9,10 +9,13 @@ import {
 } from "react";
 
 export interface CartItem {
-  id: string;
+  id: string; // unique cart line id (productId + size + color)
+  productId: string;
   name: string;
   price: number;
   image: string | null;
+  size: string | null;
+  color: string | null;
   quantity: number;
 }
 
@@ -23,7 +26,7 @@ interface CartContextValue {
   isOpen: boolean;
   open: () => void;
   close: () => void;
-  add: (item: Omit<CartItem, "quantity">) => void;
+  add: (item: Omit<CartItem, "quantity" | "id"> & { id?: string }) => void;
   remove: (id: string) => void;
   setQuantity: (id: string, qty: number) => void;
   clear: () => void;
@@ -31,6 +34,10 @@ interface CartContextValue {
 
 const CartContext = createContext<CartContextValue | null>(null);
 const STORAGE_KEY = "cart";
+
+function lineKey(productId: string, size: string | null, color: string | null) {
+  return `${productId}__${size ?? ""}__${color ?? ""}`;
+}
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
@@ -56,13 +63,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
   }, [items, hydrated]);
 
-  const add = useCallback((item: Omit<CartItem, "quantity">) => {
+  const add = useCallback((item: Omit<CartItem, "quantity" | "id"> & { id?: string }) => {
+    const id = lineKey(item.productId, item.size, item.color);
     setItems((prev) => {
-      const existing = prev.find((i) => i.id === item.id);
+      const existing = prev.find((i) => i.id === id);
       if (existing) {
-        return prev.map((i) => (i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i));
+        return prev.map((i) => (i.id === id ? { ...i, quantity: i.quantity + 1 } : i));
       }
-      return [...prev, { ...item, quantity: 1 }];
+      return [...prev, { ...item, id, quantity: 1 }];
     });
     setIsOpen(true);
   }, []);
