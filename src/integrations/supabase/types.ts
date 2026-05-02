@@ -14,36 +14,149 @@ export type Database = {
   }
   public: {
     Tables: {
-      products: {
+      orders: {
         Row: {
-          badge: string | null
-          category: string
+          address: string
           created_at: string
-          description: string
+          customer_name: string
           id: string
-          image: string | null
-          name: string
-          price: number
+          items: Json
+          phone: string
+          status: string
+          total_price: number
         }
         Insert: {
-          badge?: string | null
-          category?: string
+          address: string
           created_at?: string
-          description?: string
+          customer_name: string
           id: string
-          image?: string | null
-          name: string
-          price?: number
+          items?: Json
+          phone: string
+          status?: string
+          total_price?: number
         }
         Update: {
+          address?: string
+          created_at?: string
+          customer_name?: string
+          id?: string
+          items?: Json
+          phone?: string
+          status?: string
+          total_price?: number
+        }
+        Relationships: []
+      }
+      product_types: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+          size_deck_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          id: string
+          name: string
+          size_deck_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+          size_deck_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "product_types_size_deck_id_fkey"
+            columns: ["size_deck_id"]
+            isOneToOne: false
+            referencedRelation: "size_decks"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      products: {
+        Row: {
+          available_sizes: string[]
+          badge: string | null
+          colors: Json
+          created_at: string
+          description: string
+          has_discount: boolean
+          id: string
+          name: string
+          old_price: number | null
+          price: number
+          type: string
+        }
+        Insert: {
+          available_sizes?: string[]
           badge?: string | null
-          category?: string
+          colors?: Json
           created_at?: string
           description?: string
-          id?: string
-          image?: string | null
-          name?: string
+          has_discount?: boolean
+          id: string
+          name: string
+          old_price?: number | null
           price?: number
+          type?: string
+        }
+        Update: {
+          available_sizes?: string[]
+          badge?: string | null
+          colors?: Json
+          created_at?: string
+          description?: string
+          has_discount?: boolean
+          id?: string
+          name?: string
+          old_price?: number | null
+          price?: number
+          type?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          full_name: string | null
+          id: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          full_name?: string | null
+          id: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      size_decks: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+          sizes: string[]
+        }
+        Insert: {
+          created_at?: string
+          id: string
+          name: string
+          sizes?: string[]
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+          sizes?: string[]
         }
         Relationships: []
       }
