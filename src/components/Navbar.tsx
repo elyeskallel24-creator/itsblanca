@@ -18,11 +18,18 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const goToShop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setMobileOpen(false);
+    // Reset shop view to category landing
+    window.dispatchEvent(new CustomEvent("blanca:shop-reset"));
+    document.getElementById("shop")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   const links = [
-    { label: t.nav.home, href: "#home" },
-    { label: t.nav.shop, href: "#shop" },
-    { label: t.nav.drops, href: "#shop" },
-    { label: t.nav.about, href: "#about" },
+    { label: t.nav.home, href: "#home", onClick: undefined as ((e: React.MouseEvent) => void) | undefined },
+    { label: t.nav.shop, href: "#shop", onClick: goToShop },
+    { label: t.nav.about, href: "#about", onClick: undefined },
   ];
 
   return (
@@ -48,6 +55,7 @@ export function Navbar() {
             <a
               key={l.label}
               href={l.href}
+              onClick={l.onClick}
               className="font-mono-accent text-xs tracking-[0.2em] text-foreground/80 transition-colors hover:text-acid"
             >
               {l.label}
@@ -94,7 +102,10 @@ export function Navbar() {
               <a
                 key={l.label}
                 href={l.href}
-                onClick={() => setMobileOpen(false)}
+                onClick={(e) => {
+                  if (l.onClick) l.onClick(e);
+                  setMobileOpen(false);
+                }}
                 className="font-mono-accent border-b border-border/40 py-3 text-sm tracking-[0.25em] text-foreground/80 last:border-0 hover:text-acid"
               >
                 {l.label}
